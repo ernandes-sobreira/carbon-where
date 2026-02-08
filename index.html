@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Onde está o carbono no Pantanal? — Hub + Subprojetos</title>
+  <title>Onde está o carbono no Pantanal? — Hub + 10 Subprojetos</title>
 
   <style>
     :root{
@@ -15,35 +15,32 @@
       --muted:rgba(255,255,255,.72);
       --shadow: 0 18px 60px rgba(0,0,0,.45);
       --radius: 18px;
-      --radius2: 14px;
       --pad: 14px;
       --max: 1150px;
-      --focus:#60a5fa;
       --danger:#fb7185;
       --ok:#34d399;
       --warn:#fbbf24;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family:var(--sans); background:radial-gradient(1200px 800px at 10% 10%, rgba(59,130,246,.20), transparent 55%),
-                                   radial-gradient(1200px 800px at 90% 30%, rgba(236,72,153,.20), transparent 55%),
-                                   radial-gradient(1200px 800px at 30% 90%, rgba(34,197,94,.18), transparent 55%),
-                                   var(--bg);
-         color:var(--ink);}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(59,130,246,.20), transparent 55%),
+        radial-gradient(1200px 800px at 90% 30%, rgba(236,72,153,.20), transparent 55%),
+        radial-gradient(1200px 800px at 30% 90%, rgba(34,197,94,.18), transparent 55%),
+        var(--bg);
+      color:var(--ink);
+    }
     .wrap{max-width:var(--max); margin:0 auto; padding:16px;}
-    a{color:inherit}
-
-    /* TOPBAR */
     header{
       position:sticky; top:0; z-index:50;
       background:rgba(7,10,18,.72);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .top{
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
-    }
+    .top{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
     .brand{display:flex; gap:12px; align-items:center;}
     .logo{
       width:46px; height:46px; border-radius:16px;
@@ -52,6 +49,7 @@
     }
     h1{font-size:16px; margin:0; line-height:1.1}
     .subtitle{margin:2px 0 0; font-size:12px; color:var(--muted)}
+
     .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;}
     .pill{
       font-size:12px;
@@ -62,18 +60,17 @@
       color:var(--muted);
     }
 
-    /* BIG BUTTONS */
     button, .btn{
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
       color:var(--ink);
-      padding:14px 16px;              /* bigger */
+      padding:14px 16px;
       border-radius:16px;
       cursor:pointer;
       font-weight:900;
       letter-spacing:.2px;
       box-shadow: 0 12px 32px rgba(0,0,0,.25);
-      min-height:52px;                /* big tap target */
+      min-height:52px;
     }
     button:hover{border-color:rgba(255,255,255,.22)}
     button:active{transform:translateY(1px)}
@@ -92,7 +89,6 @@
       background:rgba(52,211,153,.14);
     }
 
-    /* LAYOUT */
     .hide{display:none !important;}
     .card{
       border:1px solid var(--line);
@@ -115,7 +111,6 @@
     .small{font-size:12px}
     .hr{height:1px; background:var(--line); margin:14px 0}
 
-    /* HOME grid */
     .home-grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -145,10 +140,10 @@
       text-shadow: 0 6px 18px rgba(0,0,0,.45);
     }
     .projMeta{
-      font-size:12px; color:rgba(255,255,255,.88);
+      font-size:12px; color:rgba(255,255,255,.90);
       text-shadow: 0 6px 18px rgba(0,0,0,.45);
       line-height:1.35;
-      max-width: 90%;
+      max-width: 92%;
     }
     .projFooter{
       display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
@@ -174,7 +169,6 @@
       min-height:44px;
     }
 
-    /* EDIT AREA */
     .grid{
       display:grid;
       grid-template-columns: 1.08fr .92fr;
@@ -211,8 +205,15 @@
       font-size:12px;
       line-height:1.45;
     }
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      font-size:11px; color:rgba(255,255,255,.88);
+      background:rgba(0,0,0,.18);
+      font-weight:900;
+    }
 
-    /* List points */
     .list{display:flex; flex-direction:column; gap:12px}
     .item{
       border:1px solid rgba(255,255,255,.14);
@@ -238,19 +239,9 @@
     @media(max-width:780px){ .item-b{grid-template-columns:1fr} }
     .k{font-size:11px; color:var(--muted); margin:0 0 4px}
     .v{font-size:12px; margin:0; word-break:break-word; color:rgba(255,255,255,.90)}
-    .badge{
-      display:inline-flex; align-items:center;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      font-size:11px; color:rgba(255,255,255,.88);
-      background:rgba(0,0,0,.18);
-      font-weight:900;
-    }
 
     dialog{
-      border:none;
-      padding:0;
-      border-radius:20px;
+      border:none; padding:0; border-radius:20px;
       width:min(940px, 96vw);
       background:rgba(15,23,42,.88);
       color:var(--ink);
@@ -291,15 +282,16 @@
         <div class="card-h">
           <div class="left">
             <div class="dot" style="background:conic-gradient(from 210deg, #22c55e, #60a5fa, #a78bfa, #fb7185, #fbbf24, #22c55e)"></div>
-            <h2>Hub de Subprojetos</h2>
+            <h2>Hub de Subprojetos (1–10)</h2>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end">
             <button class="btn-ok" id="btnAddTab">+ Novo subprojeto</button>
           </div>
         </div>
+
         <div class="card-b">
           <div class="note">
-            <b>Objetivo principal:</b> mapear fluxos de carbono (influxo/efluxo) e identificar <b>hotspots</b> e <b>hot moments</b> para apoiar manejo hidrológico no Pantanal.
+            <b>Objetivo principal:</b> mapear os fluxos de carbono (influxo e efluxo) determinando hotspots e hot moments para inferência nas medidas de manejo hidrológico no Pantanal.
             <div class="hr"></div>
             <span class="badge">Regras mínimas</span>
             <div class="small" style="margin-top:8px; color:rgba(255,255,255,.86)">
@@ -312,7 +304,7 @@
       </div>
     </section>
 
-    <!-- APP VIEW (INSIDE SUBPROJECT) -->
+    <!-- APP VIEW -->
     <section id="appView" class="hide">
 
       <div class="grid">
@@ -341,7 +333,7 @@
                 <input id="tabOwner" />
               </div>
               <div>
-                <label>Cor (card/botões)</label>
+                <label>Cor (card)</label>
                 <input id="tabColor" type="color"/>
               </div>
             </div>
@@ -354,7 +346,7 @@
                 <textarea id="tabGoal"></textarea>
               </div>
               <div>
-                <label>Metodologia (padrão)</label>
+                <label>Metodologia (subprojeto)</label>
                 <textarea id="tabMethods"></textarea>
               </div>
             </div>
@@ -393,7 +385,7 @@
           <div class="card-h">
             <div class="left">
               <div class="dot" style="background:linear-gradient(135deg,#60a5fa,#22c55e)"></div>
-              <h2>Metodologia geral (projeto)</h2>
+              <h2>Projeto geral</h2>
             </div>
             <span class="badge">editável</span>
           </div>
@@ -436,7 +428,6 @@
         </div>
 
         <div class="card-b">
-
           <div class="row">
             <div>
               <label>Busca rápida</label>
@@ -464,19 +455,16 @@
           <div class="list" id="points"></div>
         </div>
       </section>
-    </section>
 
+    </section>
   </div>
 </main>
 
 <input type="file" id="filePick" accept="application/json" hidden />
 
 <script>
-/* =========================
-   Storage + Helpers
-========================= */
-const KEY = "onde-esta-o-carbono-pantanal.hub.v2";
-
+/* ========= Helpers / Storage ========= */
+const KEY = "onde-esta-o-carbono-pantanal.hub.v3";
 const uid = () => Math.random().toString(16).slice(2) + Date.now().toString(16);
 const deepCopy = (o)=>JSON.parse(JSON.stringify(o));
 
@@ -504,10 +492,7 @@ function pickJSON(cb){
     const file = f.files?.[0];
     if(!file) return;
     const r = new FileReader();
-    r.onload = () => {
-      try{ cb(JSON.parse(r.result)); }
-      catch(e){ alert("JSON inválido."); }
-    };
+    r.onload = () => { try{ cb(JSON.parse(r.result)); } catch(e){ alert("JSON inválido."); } };
     r.readAsText(file);
   };
   f.click();
@@ -518,50 +503,30 @@ function slug(s){
     .toLowerCase().replace(/[^a-z0-9]+/g,"-")
     .replace(/(^-|-$)/g,"").slice(0,60);
 }
-
-/* =========================
-   Default State + Presets
-========================= */
-const palette = [
-  {hex:"#22c55e", name:"Verde"},
-  {hex:"#60a5fa", name:"Azul"},
-  {hex:"#a78bfa", name:"Roxo"},
-  {hex:"#fb7185", name:"Rosa"},
-  {hex:"#fbbf24", name:"Amarelo"},
-  {hex:"#34d399", name:"Menta"},
-  {hex:"#f97316", name:"Laranja"},
-  {hex:"#38bdf8", name:"Ciano"},
-];
-
-function defaultProject(){
-  return {
-    id: uid(),
-    name: "Onde está o carbono no Pantanal?",
-    mainGoal:
-"Mapear os fluxos de carbono (influxo e efluxo) determinando hotspots e hot moments para inferência nas medidas de manejo hidrológico no Pantanal.",
-    secondaryGoals:
-`1. Efeito das cinzas nos fluxos de carbono (mesocosmos)
-2. Efeito das cinzas na respiração edáfica (solo com/sem fogo)
-3. Zona de transição aquático-terrestre (seco → coluna d’água -50 cm)
-4. Fluxo em áreas de distinto estoque de C no solo
-5. Comparar dinâmica das águas (cheia → seca)
-6. Macrófitas (densidade/sequestro)
-7. Águas urbanas
-8. Ilhas da estiagem
-9. Fotossíntese de espécies (manejo/restauração)
-10. Decomposição de MO e liberação de GHG`,
-    rules:
-"≥5 réplicas por compartimento • ≥3 campanhas: Cheia/Vazante/Seca • Foco agosto–setembro (cinzas/solo queimado) • Frequência diária/semanal/mensal conforme subprojeto.",
-    standardMethod:
-`Fluxo (GHG) por 3 minutos a partir do início da reta coerente.
-Em cada local: coletar 20 g de solo/sedimento (textura), biomassa quando aplicável, serrapilheira total da área da câmara.
-Medições: pH, condutividade, temperatura (solo/sed/água), oxigênio (água).
-Atmosféricos: T ar, ponto de orvalho, umidade, pressão, luminosidade, vento; + fotos.
-Água: P, N, metais, clorofila, cor, etc.
-Solo/sedimento: estufa 60°C até peso constante (peso antes/depois) → mufla 550°C (matéria orgânica).`,
-    tabs:[]
-  };
+function shorten(s, n){
+  s = String(s||"").trim();
+  if(s.length<=n) return s;
+  return s.slice(0,n-1) + "…";
 }
+function escapeHtml(s){
+  return String(s||"")
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+
+/* ========= Defaults ========= */
+const palette = [
+  {hex:"#22c55e"}, // verde
+  {hex:"#60a5fa"}, // azul
+  {hex:"#a78bfa"}, // roxo
+  {hex:"#fb7185"}, // rosa
+  {hex:"#fbbf24"}, // amarelo
+  {hex:"#34d399"}, // menta
+  {hex:"#f97316"}, // laranja
+  {hex:"#38bdf8"}, // ciano
+  {hex:"#ef4444"}, // vermelho
+  {hex:"#10b981"}, // esmeralda
+];
 
 function baseChecklist(){
   return `Tiger
@@ -575,97 +540,139 @@ Tablet carregado`;
 }
 
 function mkTab(name, owner, color, goal, methods, design, compartments, notes){
+  return { id: uid(), name, owner, color, goal, methods, design, compartments, notes, checklist: baseChecklist(), points: [] };
+}
+
+function defaultProject(){
   return {
     id: uid(),
-    name, owner, color,
-    goal, methods, design, compartments, notes,
-    checklist: baseChecklist(),
-    points:[]
+    name: "Onde está o carbono no Pantanal?",
+    mainGoal: "Mapear os fluxos de carbono (influxo e efluxo) determinando hotspots e hot moments para inferência nas medidas de manejo hidrológico no Pantanal.",
+    secondaryGoals:
+`1. Analisar o efeito das cinzas nos fluxo de carbono (mesocosmos)
+2. Analisar o efeito das cinzas na respiração edáfica (solo com e sem efeito de fogo)
+3. Analisar o efeito da zona de transição aquático terrestre no fluxo de carbono (de ambiente totalmente seco até a coluna d'água -50cm).
+4. Analisar o fluxo de carbono em áreas de distinto estoque de carbono no solo.
+5. Analisar o fluxo de carbono comparando a dinâmica das águas (da cheia a seca)
+6. Comparar áreas com diferentes densidades de macrófitas aquáticas refletindo na importância do sequestro de carbono
+7. Analisar as águas urbanas no fluxo de carbono
+8. Analisar o fluxo de carbono nas ilhas formadas devido o processo de estiagem
+9. Analisar a fotossíntese de diferentes espécies para o manejo ecossistêmico de restauração ambiental
+10. Analisar a decomposição de matéria orgânica na liberação de GHG.`,
+    rules: "≥5 réplicas por compartimento • 3 campanhas (Cheia/Vazante/Seca) • foco em agosto–setembro (cinzas/solo queimado) • coletas diárias/semanais/mensais conforme item",
+    standardMethod:
+`Metodologia padrão: fluxo por 3 minutos a partir do início da reta coerente.
+Em cada local: coletar 20 g de solo/sedimento (textura), biomassa quando aplicável, serrapilheira total da área da câmara.
+Medições: pH, condutividade, temperatura (solo/sed/água), oxigênio (água).
+Atmosféricos: T ar, ponto de orvalho, umidade, pressão, luminosidade, vento; + fotos.
+Água: P, N, metais, clorofila, cor etc.
+Solo/sedimento: estufa 60°C até peso constante (peso antes/depois) → mufla 550°C (matéria orgânica).`,
+    tabs:[]
   };
 }
 
 function defaultTabs(){
   return [
     mkTab(
-      "1–2) Cinzas & respiração edáfica (mesocosmos/campo)",
+      "1) Efeito das cinzas nos fluxos de carbono (mesocosmos)",
       "Gustavo Zaninelo",
       palette[3].hex,
-      "Quantificar o efeito das cinzas nos fluxos de carbono e na respiração edáfica comparando solo com e sem efeito de fogo, incluindo gradiente de concentração de cinzas.",
-      "Mesocosmos: tratamentos com diferentes concentrações de cinzas; medir 1× por semana. Campo: medir a partir do início das queimadas (junho/julho), priorizando agosto/setembro.",
-      "≥5 réplicas por tratamento/compartimento • campanhas Cheia/Vazante/Seca quando aplicável • foco agosto–setembro.",
-      "Solo queimado; solo não queimado; solo rachado; solo produtivo (hortaliças); sedimento/solo em borda de lago; fazendas; áreas antropizadas.",
-      "Garantir identificação inlet/outlet; evitar entrada de água/poeira; registro fotográfico padronizado."
+      "Analisar o efeito das cinzas nos fluxos de carbono em mesocosmos com diferentes concentrações de cinzas.",
+      "Mesocosmos: tratamentos com diferentes concentrações de cinzas; medições 1× por semana; registrar pH, condutividade, temperatura e variáveis atmosféricas; água para N/P/metais/clorofila/cor quando aplicável.",
+      "≥5 réplicas por tratamento • repetir em Cheia/Vazante/Seca quando aplicável • foco em agosto–setembro.",
+      "Mesocosmos com água/sedimento; diferentes doses de cinzas; comparar condições de umidade.",
+      "Manter protocolo de 3 min a partir da reta coerente; checklist completo do equipamento."
     ),
     mkTab(
-      "3) ATTZ + baías secas vs cheias (gradiente seco→água 50 cm)",
+      "2) Efeito das cinzas na respiração edáfica (solo com/sem fogo)",
+      "Gustavo Zaninelo",
+      palette[6].hex,
+      "Analisar o efeito das cinzas e do fogo na respiração edáfica comparando solos queimados vs não queimados.",
+      "Campo/lab: medir fluxo em solo queimado vs não queimado; coletar 20 g para textura; estufa 60°C até peso constante; mufla 550°C; registrar atmosféricos e fotos.",
+      "≥5 réplicas por condição • campanhas Cheia/Vazante/Seca quando viável • intensificar a partir de junho/julho e principalmente agosto/setembro.",
+      "Solo queimado, solo rachado, solo exposto, solo produtivo (hortaliças), áreas pós-aeração para plantio.",
+      "Iniciar medições a partir do começo das queimadas (jun/jul)."
+    ),
+    mkTab(
+      "3) Zona de transição aquático-terrestre (ATTZ: seco → água -50 cm)",
       "Daiana",
       palette[1].hex,
-      "Avaliar como a zona de transição aquático-terrestre controla hotspots/hot moments, comparando gradiente do solo nunca inundado até -50 cm de coluna d’água, incluindo baías secas vs cheias.",
-      "Amostragem semanal no gradiente: seco (nunca inundado) → borda → lâmina d’água até 50 cm. Integrar baías secas vs cheias conforme nível da água.",
-      "≥5 réplicas por posição do gradiente • repetição temporal em Cheia/Vazante/Seca.",
-      "ATTZ (seco→água), baías em diferentes níveis, lagos secando, macrófitas na borda, sedimento exposto.",
-      "Unificar protocolo de 3 min/linha coerente; registrar vento/luminosidade para comparabilidade."
+      "Analisar como a ATTZ controla hotspots/hot moments no fluxo de carbono do seco (nunca inundado) até -50 cm de coluna d’água.",
+      "Amostragem semanal no gradiente; medir fluxo em cada posição; sedimento/solo/água conforme compartimento; medir O₂ em água.",
+      "≥5 réplicas por posição do gradiente • repetir em Cheia/Vazante/Seca.",
+      "Gradiente seco→borda→lâmina d’água; incluir sedimento exposto e borda com macrófitas.",
+      "Padronizar níveis (0, -10, -20, -35, -50) e fotos fixas."
     ),
     mkTab(
-      "4–5) Estoque de C no solo × fluxo + dinâmica hidrológica",
+      "4) Fluxo de carbono em áreas de distinto estoque de C no solo",
       "Daiana",
       palette[0].hex,
-      "Comparar fluxos de carbono em áreas com distinto estoque de carbono no solo e ao longo da dinâmica das águas (cheia→seca).",
-      "Escolher áreas baseadas em dados prévios e MapBiomas. Coletas pontuais em vários pontos + repetição sazonal quando possível.",
-      "≥5 réplicas por área • 3 campanhas (Cheia/Vazante/Seca) para dinâmica hidrológica.",
-      "Solo nunca inundado; áreas muito úmidas vs pouco úmidas; fazendas; florestas savânicas; serrapilheira; áreas após aeração para plantio.",
-      "Adicionar metadados do uso do solo (antropização, manejo, aeração) em cada ponto."
+      "Analisar o fluxo de carbono em áreas com distintos estoques de carbono no solo (dados prévios + MapBiomas).",
+      "Coletas pontuais em vários pontos; medir fluxo e coletar solo para textura/MO; registrar uso do solo e manejo.",
+      "≥5 réplicas por área • amostragem única (múltiplos pontos) ou repetir sazonalmente se houver logística.",
+      "Áreas muito úmidas vs pouco úmidas; fazendas; florestas savânicas; serrapilheira; solos pós-aeração.",
+      "Registrar classe MapBiomas e histórico do local."
     ),
     mkTab(
-      "6) Macrófitas: densidade × sequestro/fluxo",
+      "5) Fluxo de carbono comparando dinâmica das águas (cheia → seca)",
+      "Daiana",
+      palette[2].hex,
+      "Comparar fluxos ao longo da dinâmica hidrológica (Cheia, Vazante e Seca), identificando hot moments.",
+      "Repetir medições nos mesmos pontos por campanha; registrar nível d’água, condição do solo/sedimento, cinzas (se houver).",
+      "≥5 réplicas por compartimento • 3 campanhas: Cheia/Vazante/Seca.",
+      "Lagos, rios, baías; áreas alagáveis e não alagáveis; sedimento exposto na seca.",
+      "Anotar estágio hidrológico e evidências de deposição de cinzas."
+    ),
+    mkTab(
+      "6) Macrófitas aquáticas: densidade × sequestro de carbono",
       "Josy",
       palette[5].hex,
-      "Comparar áreas com diferentes densidades de macrófitas aquáticas e estimar a importância relativa no sequestro de carbono.",
-      "Fluxo na interface água/macrófitas/sedimento + biomassa. Registrar cobertura/densidade e espécie dominante.",
-      "≥5 réplicas por condição de densidade • campanhas Cheia/Vazante/Seca.",
-      "Macrófitas aquáticas; macrófitas secas na praia; borda de lago; lagos secando; piscicultura como contraste.",
-      "Padronizar coleta de biomassa (área da câmara) e identificação taxonômica simples (morfotipo)."
+      "Comparar áreas com diferentes densidades de macrófitas aquáticas e inferir importância no sequestro e no fluxo.",
+      "Fluxo na interface água/macrófitas/sedimento; coletar biomassa (área da câmara) e identificar espécie/morfotipo.",
+      "≥5 réplicas por densidade • repetir em Cheia/Vazante/Seca.",
+      "Macrófitas em lagoas/baías; baixa/média/alta densidade.",
+      "Registrar cobertura (%) e biomassa para comparabilidade."
     ),
     mkTab(
-      "7) Águas urbanas (córregos/ambientes intermediários)",
+      "7) Águas urbanas no fluxo de carbono",
       "Josy",
       palette[7].hex,
-      "Quantificar fluxos de carbono em águas urbanas e comparar com ambientes menos antropizados.",
-      "Uma campanha por local: pontos intermediários de córregos urbanos com 3 réplicas em cada local. Coletar água para N/P/metais/clorofila/cor.",
-      "3 réplicas por local (urbano) • repetir em outra estação se houver equipe/tempo.",
-      "Córregos urbanos; trechos intermediários; possíveis pontos de lançamento; comparar com córregos não urbanos quando possível.",
-      "Registrar odor/cor/turbidez visual + fotos padronizadas."
+      "Analisar fluxos de carbono em águas urbanas e comparar com ambientes menos antropizados.",
+      "Campanha por local: pontos intermediários de córregos urbanos com 3 réplicas; coletar água (N/P/metais/clorofila/cor), medir O₂, pH, cond, temperatura.",
+      "3 réplicas por local • repetir em outra estação se possível.",
+      "Córregos urbanos; trechos intermediários; influência do entorno.",
+      "Registrar fotos, odor, turbidez visual e contexto."
     ),
     mkTab(
-      "8) Ilhas da estiagem (próximas a Cáceres)",
+      "8) Fluxo de carbono nas ilhas formadas na estiagem",
       "Thiago",
-      palette[2].hex,
-      "Analisar fluxos de carbono nas ilhas formadas pela redução das águas, avaliando variabilidade espacial e relação com substrato/vegetação.",
-      "Visitar todas as ilhas formadas próximas a Cáceres; medir solo exposto, borda úmida e, quando houver, lâmina residual.",
-      "≥5 réplicas por microambiente dentro de cada ilha • repetir conforme evolução da seca.",
-      "Ilhas recém-formadas; borda úmida; solo rachado; vegetação colonizadora; serrapilheira.",
-      "Criar um código simples para ilhas (ILH-01, ILH-02...) + coordenadas e fotos."
-    ),
-    mkTab(
-      "9) Fotossíntese (laboratório: 10 espécies × 10 réplicas)",
-      "Cleverson",
       palette[4].hex,
-      "Medir potencial fotossintético de 10 espécies para apoiar manejo/restauração ecossistêmica.",
-      "Experimento de 2–3 dias: 10 espécies × 10 réplicas. Registrar condições do laboratório, luz, temperatura e hidratação do material.",
-      "10 réplicas por espécie • repetir se possível em outra condição de luz/temperatura.",
-      "Espécies aquáticas e terrestres relevantes ao Pantanal (definir lista).",
-      "Padronizar aclimatação e horário de medição."
+      "Analisar o fluxo de carbono nas ilhas formadas pela redução das águas, avaliando variabilidade espacial.",
+      "Medir em todas as ilhas próximas a Cáceres; incluir microambientes (topo seco, borda úmida, sedimento exposto).",
+      "≥5 réplicas por microambiente por ilha • repetir conforme evolução da seca quando viável.",
+      "Ilhas recém-formadas; bordas; solo rachado; vegetação colonizadora; serrapilheira.",
+      "Criar código ILH-xx + coordenadas + fotos."
     ),
     mkTab(
-      "10) Decomposição (60 dias, medição a cada 5 dias)",
+      "9) Fotossíntese de espécies para manejo/restauração (laboratório)",
+      "Cleverson",
+      palette[1].hex,
+      "Analisar potencial fotossintético de 10 espécies para manejo/restauração ambiental.",
+      "Experimento 2–3 dias: 10 espécies × 10 réplicas; registrar condições (luz, temperatura, hidratação) e protocolo.",
+      "10 réplicas por espécie • repetir se possível em outra condição.",
+      "Lista de 10 espécies (definir) — aquáticas e terrestres relevantes.",
+      "Padronizar aclimatação e horário."
+    ),
+    mkTab(
+      "10) Decomposição de matéria orgânica e liberação de GHG (60 dias)",
       "Bia",
-      palette[6].hex,
-      "Quantificar liberação de GHG pela decomposição de macrófitas em gradiente de umidade (seco→permanentemente molhado).",
-      "Incubação em frascos fechados; medir a cada 5 dias por 60 dias. Sugerido fator: COM solo vs SEM solo (microbiota/sorção).",
-      "≥5 réplicas por espécie × condição de umidade × (com/sem solo).",
-      "Macrófitas de diferentes espécies em ambientes de distinto grau de umidade.",
-      "Definir massa inicial do material; registrar perda de massa/alterações visuais e temperatura."
-    )
+      palette[0].hex,
+      "Analisar decomposição e liberação de GHG usando macrófitas de diferentes espécies em gradiente de umidade (seco → permanentemente molhado).",
+      "Incubação em frascos fechados; medir a cada 5 dias por 60 dias; registrar massa inicial e condições. Fator sugerido: COM solo vs SEM solo.",
+      "≥5 réplicas por espécie × umidade × (com/sem solo).",
+      "Macrófitas em ambientes com distintos graus de umidade; testar com e sem solo/sedimento.",
+      "Definir massa do material e padronizar volume/temperatura."
+    ),
   ];
 }
 
@@ -682,7 +689,6 @@ function pointTemplate(){
     lon: "",
     replicates: 5,
     notes: "",
-
     pH: "", cond: "", temp_sample: "", oxygen: "",
     air_temp: "", dew_point: "", humidity: "", pressure: "", light: "", wind: "",
     photos: "",
@@ -696,9 +702,7 @@ function pointTemplate(){
   };
 }
 
-/* =========================
-   State
-========================= */
+/* ========= State ========= */
 let state = load();
 if(!state){
   const project = defaultProject();
@@ -711,9 +715,7 @@ function activeTab(){
   return state.project.tabs.find(t => t.id === state.activeTabId) || state.project.tabs[0];
 }
 
-/* =========================
-   View Switch
-========================= */
+/* ========= View Switch ========= */
 function showHome(){
   state.view = "home";
   document.getElementById("homeView").classList.remove("hide");
@@ -734,14 +736,11 @@ function showApp(tabId){
   renderAll();
 }
 
-/* =========================
-   Render HOME cards
-========================= */
+/* ========= Render HOME ========= */
 function renderHome(){
   const grid = document.getElementById("homeGrid");
   grid.innerHTML = "";
-
-  state.project.tabs.forEach((t, idx) => {
+  state.project.tabs.forEach((t) => {
     const card = document.createElement("div");
     card.className = "projCard";
     card.style.background =
@@ -752,7 +751,7 @@ function renderHome(){
     title.innerHTML = `
       <div class="projTitle">${escapeHtml(t.name)}</div>
       <div class="projMeta"><b>Responsável:</b> ${escapeHtml(t.owner||"—")}<br/>
-      ${escapeHtml(shorten(t.goal||"", 155))}</div>
+      ${escapeHtml(shorten(t.goal||"", 165))}</div>
     `;
 
     const footer = document.createElement("div");
@@ -770,23 +769,7 @@ function renderHome(){
   });
 }
 
-function shorten(s, n){
-  s = String(s||"").trim();
-  if(s.length<=n) return s;
-  return s.slice(0,n-1) + "…";
-}
-function escapeHtml(s){
-  return String(s||"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-/* =========================
-   Render APP
-========================= */
+/* ========= Render APP ========= */
 function renderProject(){
   document.getElementById("projectMainGoal").value = state.project.mainGoal || "";
   document.getElementById("projectSecondaryGoals").value = state.project.secondaryGoals || "";
@@ -895,9 +878,7 @@ function renderAll(){
   renderPoints();
 }
 
-/* =========================
-   Dialog editor
-========================= */
+/* ========= Dialog editor ========= */
 function openPointEditor(pointId){
   const t = activeTab();
   const p = t.points.find(x=>x.id===pointId);
@@ -922,6 +903,7 @@ function openPointEditor(pointId){
             <button class="btn-ok" id="dlgSave" type="button" value="default">Salvar</button>
           </div>
         </div>
+
         <div class="card-b" style="max-height:75vh; overflow:auto">
           <div class="row">
             <div><label>Nome</label><input id="p_name"/></div>
@@ -1040,13 +1022,10 @@ function openPointEditor(pointId){
   dlg.showModal();
 }
 
-/* =========================
-   Bindings
-========================= */
+/* ========= Bindings ========= */
 function bind(){
   document.getElementById("btnHome").onclick = () => showHome();
 
-  // Project fields
   ["projectMainGoal","projectSecondaryGoals","projectRules","projectStandardMethod"].forEach(id=>{
     document.getElementById(id).addEventListener("input", ()=>{
       setSaved(false);
@@ -1058,7 +1037,6 @@ function bind(){
     });
   });
 
-  // Tab fields
   const tabFields=[["tabName","name"],["tabOwner","owner"],["tabColor","color"],
                    ["tabGoal","goal"],["tabMethods","methods"],["tabDesign","design"],
                    ["tabCompartments","compartments"],["tabChecklist","checklist"],["tabNotes","notes"]];
@@ -1075,7 +1053,6 @@ function bind(){
     });
   });
 
-  // Add tab
   document.getElementById("btnAddTab").onclick = ()=>{
     const idx = state.project.tabs.length % palette.length;
     const t = mkTab(
@@ -1094,7 +1071,6 @@ function bind(){
     renderHome();
   };
 
-  // Delete tab
   document.getElementById("btnDeleteTab").onclick = ()=>{
     if(state.project.tabs.length<=1){ alert("Precisa existir pelo menos 1 subprojeto."); return; }
     const t=activeTab();
@@ -1106,7 +1082,6 @@ function bind(){
     }
   };
 
-  // Add point
   document.getElementById("btnAddPoint").onclick = ()=>{
     const t=activeTab();
     const p=pointTemplate();
@@ -1117,23 +1092,15 @@ function bind(){
     openPointEditor(p.id);
   };
 
-  // Filters
   ["q","filterType","filterSeason"].forEach(id=>{
     document.getElementById(id).addEventListener("input", renderPoints);
     document.getElementById(id).addEventListener("change", renderPoints);
   });
 
-  // Export/Import tab
-  document.getElementById("btnTabExport").onclick = ()=>{
-    const t=activeTab();
-    downloadJSON(`aba-${slug(t.name)}.json`, t);
-  };
+  document.getElementById("btnTabExport").onclick = ()=> downloadJSON(`aba-${slug(activeTab().name)}.json`, activeTab());
   document.getElementById("btnTabImport").onclick = ()=>{
     pickJSON((data)=>{
-      if(!data || !data.name || !("points" in data)){
-        alert("JSON não parece ser uma aba válida.");
-        return;
-      }
+      if(!data || !data.name || !("points" in data)){ alert("JSON não parece ser uma aba válida."); return; }
       const t=activeTab();
       const keepId=t.id;
       const merged=deepCopy(data);
@@ -1145,24 +1112,18 @@ function bind(){
     });
   };
 
-  // Export/Import project
   document.getElementById("btnExportAll").onclick = ()=> downloadJSON("projeto-onde-esta-o-carbono-pantanal.json", state);
   document.getElementById("btnImportAll").onclick = ()=>{
     pickJSON((data)=>{
-      if(!data || !data.project || !Array.isArray(data.project.tabs)){
-        alert("JSON não parece ser um projeto válido.");
-        return;
-      }
+      if(!data || !data.project || !Array.isArray(data.project.tabs)){ alert("JSON não parece ser um projeto válido."); return; }
       state=data;
       if(!state.activeTabId && state.project.tabs.length) state.activeTabId=state.project.tabs[0].id;
       if(!state.view) state.view="home";
       setSaved(false); save();
-      // Go home to avoid weirdness
       showHome();
     });
   };
 
-  // Reset
   document.getElementById("btnReset").onclick = ()=>{
     if(confirm("Resetar tudo? (apaga dados do navegador)")){
       localStorage.removeItem(KEY);
@@ -1171,15 +1132,10 @@ function bind(){
   };
 }
 
-/* =========================
-   Boot
-========================= */
+/* ========= Boot ========= */
 bind();
-if(state.view==="app"){
-  showApp(state.activeTabId);
-}else{
-  showHome();
-}
+if(state.view==="app"){ showApp(state.activeTabId); }
+else{ showHome(); }
 </script>
 </body>
 </html>
